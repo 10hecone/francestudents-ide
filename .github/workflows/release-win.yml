@@ -64,7 +64,7 @@ jobs:
       - name: Vérifier (audit, lint, tests)
         if: steps.release.outputs.ready != 'true' && !inputs.skip_checks
         run: |
-          npm audit --audit-level=low
+          npm audit --audit-level=high --omit=dev
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
           npm run lint
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }

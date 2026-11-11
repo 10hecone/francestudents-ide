@@ -540,7 +540,11 @@ function registeredToolsReminder() {
     return `OUTILS LOCAUX ENREGISTRÉS POUR CET ESPACE : ${allowed.join(", ")}. Leur présence ne garantit pas leur exécution : respecte le mode lecture seule, les permissions, les dépendances, les réglages et les refus ou erreurs réels. Le web et la vision dépendent de leur disponibilité. ${details}`;
 }
 
-function buildFollowUpPrompt({ task = "", lastObservation, turn, maxTurns, correction, steering = [], plan = [], requestNumber = turn }) {
+// La conversation serveur contient déjà la demande complète : la répéter à chaque tour
+// l'ajoute N fois à l'historique, qui est relu à chaque requête suivante.
+const FOLLOW_UP_TASK_CHARS = 800;
+
+function buildFollowUpPrompt({ task = "", fullTask = false, lastObservation, turn, maxTurns, correction, steering = [], plan = [], requestNumber = turn }) {
     const sections = [
         "SUITE DE LA TÂCHE EN COURS (mêmes instructions, outils et format qu'au premier message de cette demande).",
         ...(require("../state").state.motionDesign ? ["AGENT MOTION DESIGN — EffectCraft uniquement, sans accès au projet code. Vérifie le schéma avec command.describe avant une commande inconnue ; conserve les calques existants et contrôle le rendu."] : []),
@@ -549,7 +553,12 @@ function buildFollowUpPrompt({ task = "", lastObservation, turn, maxTurns, corre
         ...(!require("../state").state.motionDesign ? ["Pour le projet sélectionné, utilise l’outil local adapté avant de conclure à une absence d’accès ; respecte les erreurs, refus et interruptions réels, sans supposer que toute action est autorisée."] : [])
     ];
 
-    if (task) sections.push(`DEMANDE UTILISATEUR EN COURS\n${task}`);
+    if (task) {
+        const clipped = !fullTask && task.length > FOLLOW_UP_TASK_CHARS;
+        sections.push(clipped
+            ? `DEMANDE UTILISATEUR EN COURS (début ; le texte intégral figure plus haut dans cette conversation)\n${task.slice(0, FOLLOW_UP_TASK_CHARS)}…`
+            : `DEMANDE UTILISATEUR EN COURS\n${task}`);
+    }
     if (lastObservation) {
         sections.push(
             `RÉSULTAT DE L'OUTIL (tour ${turn - 1})\n${formatObservation(lastObservation, CONFIG.maxObservationChars)}`

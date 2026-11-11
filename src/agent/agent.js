@@ -741,8 +741,10 @@ async function runAgent(task, options = {}) {
                 const hasConversation = Boolean(state.chatIds.agent) && !String(state.model).startsWith("custom:");
                 const signature=promptCache.fingerprint({
                     workspace:state.motionDesign?null:state.workspace,model:state.model,motion:!!state.motionDesign,
-                    env,instructions,preprompt,mcpCatalog,skillsCatalog,
-                    fullAccess:state.fullAccess,autoApprove:state.autoApprove,autoApproveCommands:state.autoApproveCommands,
+                    // autoApprove / autoApproveCommands n'apparaissent dans aucun texte de prompt :
+                    // les inclure renvoyait tout le prompt d'instructions à chaque changement de réglage.
+                    env,instructions,preprompt:promptCache.stablePreprompt(preprompt),mcpCatalog,skillsCatalog,
+                    fullAccess:state.fullAccess,
                     eco:state.ecoMode,web:state.webSearch,automaticWeb:state.automaticWeb
                 });
                 const originalChat=state.chatIds.agent;
@@ -759,6 +761,8 @@ async function runAgent(task, options = {}) {
                 const prompt = turn > 1 && hasConversation && reuseInstructions
                     ? buildFollowUpPrompt({
                         task,
+                        // Petits modèles : demande intégrale à chaque tour, comme avant.
+                        fullTask: smallAgent,
                         lastObservation: readDelivery.delivery(lastObservation,deliveryScope,CONFIG.maxObservationChars),
                         turn,
                         maxTurns,

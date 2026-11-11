@@ -6,7 +6,7 @@
 
 **Du code aux animations, crée tes projets avec un assistant IA en français.**
 
-[Télécharger pour Windows](https://github.com/extraopaa/francestudents-ide/releases/latest) · [Télécharger pour Mac — bêta](https://github.com/extraopaa/francestudents-ide/releases/latest) · [Les guides illustrés](docs/README.md)
+[Télécharger pour Windows](https://github.com/10hecone/francestudents-ide/releases/latest) · [Télécharger pour Mac — bêta](https://github.com/10hecone/francestudents-ide/releases/latest) · [Les guides illustrés](docs/README.md)
 
 Un éditeur de code, un studio EffectCraft et un chat adapté à chaque espace.
 
@@ -14,7 +14,7 @@ Un éditeur de code, un studio EffectCraft et un chat adapté à chaque espace.
 
 > [!IMPORTANT]
 > **Ce dépôt est un fork du projet [FranceStudent Code créé par EsteG7](https://github.com/EsteG7/francestudents-ide).**
-> La création du projet revient à **EsteG7 et aux contributeurs d’origine**. Ce fork, maintenu par [extraopaa](https://github.com/extraopaa), ajoute ses propres améliorations et ne constitue pas une version officielle du dépôt original.
+> La création du projet revient à **EsteG7 et aux contributeurs d’origine**. Ce fork, maintenu par [extraopaa](https://github.com/10hecone), ajoute ses propres améliorations et ne constitue pas une version officielle du dépôt original.
 
 **Version 2.0.0 en préparation :** change de modèle en conservant les échanges textuels récents, utilise un fournisseur personnalisé compatible en bêta et retrouve ton agent sur mobile avec IDE Link. Les sauvegardes avant demande permettent de restaurer les fichiers du projet. Les [guides](docs/README.md) expliquent ces fonctions et leurs limites ; les anciennes pièces jointes doivent être renvoyées si nécessaire.
 
@@ -42,10 +42,10 @@ Les conversations Code et Motion sont séparées : l’assistant motion travaill
 
 | Ton ordinateur | Fichier à télécharger |
 | --- | --- |
-| **Windows 64 bits** | [Dernière version stable](https://github.com/extraopaa/francestudents-ide/releases/latest) → `setup.exe` |
-| **Mac Apple Silicon** — M1 et suivants, macOS 13+ | [Dernière release](https://github.com/extraopaa/francestudents-ide/releases/latest) → `mac-arm64.dmg` lorsque disponible |
+| **Windows 64 bits** | [Dernière version stable](https://github.com/10hecone/francestudents-ide/releases/latest) → `setup.exe` |
+| **Mac Apple Silicon** — M1 et suivants, macOS 13+ | [Dernière release](https://github.com/10hecone/francestudents-ide/releases/latest) → `mac-arm64.dmg` lorsque disponible |
 
-Les versions Mac récentes sont réservées à **Apple Silicon (M1 et suivants)**. La [1.3.5](https://github.com/extraopaa/francestudents-ide/releases/tag/v1.3.5) reste la dernière version archivée pour Mac Intel, sans nouvelles mises à jour. La page de téléchargement propose la dernière version publiée, qui peut être antérieure à celle préparée dans ce dépôt.
+Les versions Mac récentes sont réservées à **Apple Silicon (M1 et suivants)**. La [1.3.5](https://github.com/10hecone/francestudents-ide/releases/tag/v1.3.5) reste la dernière version archivée pour Mac Intel, sans nouvelles mises à jour. La page de téléchargement propose la dernière version publiée, qui peut être antérieure à celle préparée dans ce dépôt.
 
 1. Sur Windows, ouvre l’installateur. Sur Mac, ouvre le DMG et déplace l’application dans **Applications**.
 2. Lance FranceStudent IDE et suis le guide de connexion à ton **compte FranceStudent**.
@@ -94,7 +94,7 @@ Télécharge les installateurs depuis les releases de ce fork. Windows et macOS 
 - [Les guides illustrés](docs/README.md) : installation, connexion, Code, Motion et fonctions principales.
 - [Connexion pas à pas](docs/connexion.md) · [Premiers pas](docs/guide-utilisation.md) · [Dépannage](docs/depannage.md).
 - [Guide avancé](docs/avance.md) : installation depuis les sources, réglages, formats et extensions.
-- [Signaler un problème](https://github.com/extraopaa/francestudents-ide/issues) : indique ta version, ton système et les étapes pour reproduire le souci, sans identifiants.
+- [Signaler un problème](https://github.com/10hecone/francestudents-ide/issues) : indique ta version, ton système et les étapes pour reproduire le souci, sans identifiants.
 - [Contribuer](CONTRIBUTING.md) · [Nouveautés](CHANGELOG.md) · [Crédits](CREDITS.md).
 
 Pour reprendre le développement avec n’importe quel assistant IA, commence par [AGENTS.md](AGENTS.md) et [le contexte du projet](docs/AI_CONTEXT.md).
